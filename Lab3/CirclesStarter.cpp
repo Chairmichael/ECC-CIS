@@ -19,6 +19,7 @@ public:
    double findCircumference(); 
    void printCircleStats(); // This outputs the radius and center of the circle. 
    Circles (float r);       // Constructor
+   Circles(float r, int x, int y);
    Circles();               // Default constructor
 private: 
    float  radius;
@@ -36,10 +37,57 @@ int main()
    Circles sphere(8);
    sphere.setCenter(9,10);
    sphere.printCircleStats();
-	
    cout << "The area of the circle is " << sphere.findArea() << endl;
    cout << "The circumference of the circle is "
-	    << sphere.findCircumference() << endl;
+	    << sphere.findCircumference() << endl << endl;
+
+
+   Circles sphere1(2);
+   sphere1.printCircleStats();
+   cout << "The area of the circle is " << sphere1.findArea() << endl;
+   cout << "The circumference of the circle is "
+       << sphere1.findCircumference() << endl << endl;
+
+   Circles sphere2;
+   sphere2.printCircleStats();
+   cout << "The area of the circle is " << sphere2.findArea() << endl;
+   cout << "The circumference of the circle is "
+       << sphere2.findCircumference() << endl << endl;
+
+   float r;
+   int x, y;
+   cout << "Provide a number, or provide anything else to use default values:" << endl;
+   cout << "Radius = ";
+   cin >> r;
+   if (cin.fail()) {
+      r = 1;
+      cin.clear();
+      // cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+      cin.ignore();
+   }
+   cout << "Center_x = ";
+   cin >> x;
+   if (cin.fail()) {
+      x = 0;
+      cin.clear();
+      // cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+      cin.ignore();
+   }
+   cout << "Center_y = ";
+   cin >> y;
+   if (cin.fail()) {
+      y = 0;
+      cin.clear();
+      // cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+      cin.ignore();
+   }
+   // cout << "r=" << r << "\tx=" << x << "\ty=" << y << endl;
+
+   Circles sphere3(r, x, y);
+   sphere3.printCircleStats();
+   cout << "The area of the circle is " << sphere3.findArea() << endl;
+   cout << "The circumference of the circle is "
+       << sphere3.findCircumference() << endl << endl;
 
    return 0;
 }
@@ -55,13 +103,24 @@ Circles::Circles() {
 // Fill in the code to implement the non-default constructor
 Circles::Circles(float r) {
    radius = r;
-   
+   center_x = center_y = 0;
+}
+
+Circles::Circles(float r, int x, int y) {
+   radius = r;
+   center_x = x;
+   center_y = y;
 }
 
 // Fill in the code to implement the findArea member function
+double Circles::findArea() {
+   return PI * radius * radius;
+};
 
 // Fill in the code to implement the findCircumference member function
-
+double Circles::findCircumference() {
+   return 2 * PI * radius;
+};
 
 
 void Circles::printCircleStats()
