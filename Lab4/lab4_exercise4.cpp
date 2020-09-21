@@ -21,15 +21,6 @@
 using namespace std;
 
 
-// int* getRandomNumbers(int num) {
-//     srand(time(NULL));
-//     int *randArr = new int(num);
-//     for (int i = 0; i < num; i++) {
-//         randArr[i] = rand();
-//     }
-//     return randArr;
-// }
-
 int* getRandomNumbers(int num) {
     minstd_rand randEng(time(NULL));
     int *randArr = new int(num);
@@ -42,7 +33,7 @@ int* getRandomNumbers(int num) {
 int main()
 {
     // Output Identification
-    // system("CLS");
+    system("CLS");
     cout << "Lab 4 Exercise #4 by Jeff Henry - "
          << "Returning Pointers from Functions\n\n";
 
