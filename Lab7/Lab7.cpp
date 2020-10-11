@@ -1,5 +1,6 @@
 
 #include <iostream>
+#include <fstream>
 #include <cstdlib>
 #include <time.h>
 #include <string>
@@ -273,11 +274,37 @@ void printSet(StringSet s, string name) {
     cout << s.get(s.size()-1) << " }" << endl;
 }
 
+void get_streams(ifstream& ifs, ofstream& ofs) 
+{
+    ifs.open("in_file.dat"); 
+    if(ifs.fail()) 
+    { 
+       cout << "Failed to open the input file. \n"; 
+       exit(1); 
+    } 
+    ofs.open("out_file.dat"); 
+    if(ofs.fail()) 
+    { 
+       cout << "Failed to open the output file. \n"; 
+       exit(1); 
+    } 
+}
+
+
 int main(int argc, char const *argv[])
 {
+    ifstream ifs;
+    ofstream ofs;
+    get_streams(ifs, ofs);
+
+    string sa[] = {"Tuesday", "Wednesday"};
+    StringSet s1(sa, 2);
+    cout << s1 << endl;
+
     vector<string> v = {"foo", "bar", "10"};
-    StringSet a1(v); 
-    
+    StringSet s2(v);
+    printSet(s2,"s2");
+
 
     return 0;
 }
