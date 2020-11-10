@@ -15,35 +15,60 @@ namespace DMVqueue
         back = NULL;
     }
 
-    Queue::Queue(const Queue& aQueue)
-          //The definition of the copy constructor is Self-Test Exercise 12.
+    // Queue::Queue(const Queue& aQueue) {
+    //     if (aQueue.empty()) {
+    //         front = back = NULL;
+    //     }
+    //     else {
+    //         QueueNodePtr tempPtrOld = aQueue.front;
+    //         // Moves through the nodes, front to back
+    //         QueueNodePtr tempPtrNew;
 
-    Queue::~Queue( )
-          //The definition of the destructor is Self-Test Exercise 13.
+    //         back = new QueueNode; // First node
+    //         back->data = tempPtrOld->data;
+    //         back->link = NULL;
+    //         front = back;
 
-    //Uses cstddef:
-    bool Queue::empty( ) const
-    {
-        return (back == NULL);//front == NULL would also work
+    //         tempPtrOld = tempPtrOld->link;
+
+    //         while (tempPtrOld != NULL) {
+    //             tempPtrNew = new QueueNode;
+    //             tempPtrNew->data = tempPtrOld->data;
+    //             tempPtrNew->link = NULL;
+    //             back->link = tempPtrNew;
+    //             back = tempPtrNew;
+    //             tempPtrOld = tempPtrOld->link;
+    //         }
+    //     }
+    // }
+
+    // Queue::~Queue( ) {
+    //     int next;
+    //     while (!empty()) {
+    //         next = remove();
+    //     }
+    // }
+
+    bool Queue::empty( ) {
+        return (back == NULL);
     }
 
     //Uses cstddef:
-    void Queue::add(char item)
+    void Queue::add(int item)
     {
         if (empty( ))
         {
             front = new QueueNode;
-            front->data = item;
+            front->custNum = item;
             front->link = NULL;
             back = front;
         }
 
-        else
-        {
+        else {
             QueueNodePtr tempPtr;
             tempPtr = new QueueNode;
 
-				tempPtr->data = item;
+				tempPtr->custNum = item;
             tempPtr->link = NULL;
             back->link = tempPtr;
             back = tempPtr;
@@ -51,7 +76,7 @@ namespace DMVqueue
     }
 
     //Uses cstdlib and iostream:
-    char Queue::remove( )
+    int Queue::remove( )
     {
         if (empty( ))
         {
@@ -59,7 +84,7 @@ namespace DMVqueue
             exit(1);
         }
 
-        char result = front->data;
+        int result = front->custNum;
 
         QueueNodePtr discard;
         discard = front;

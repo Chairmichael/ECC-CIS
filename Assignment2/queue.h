@@ -3,43 +3,40 @@
 //which is a class for a queue of symbols.
 #ifndef QUEUE_H
 #define QUEUE_H
-namespace queuesavitch
+namespace DMVqueue
 {
-    struct QueueNode
-    {
-        char data;
+    struct QueueNode {
+        int custNum;
         QueueNode *link;
     };
 
     typedef QueueNode* QueueNodePtr;
 
-    class Queue
-    {
+    class Queue {
     public:
         Queue( );
         //Initializes the object to an empty queue.
 
-        Queue(const Queue& aQueue);
+        // Queue(const Queue& aQueue);
 
-        ~Queue( );
+        // ~Queue( );
 
 
-        void add(char item);
+        void add(int item);
         //Postcondition: item has been added to the back of the queue.
 
-        char remove( );
+        int remove( );
         //Precondition: The queue is not empty.
         //Returns the item at the front of the queue and
         //removes that item from the queue.
 
-        bool empty( ) const;
+        bool empty( );
         //Returns true if the queue is empty. Returns false otherwise.
     private:
-        QueueNodePtr front;//Points to the head of a linked list.
+        QueueNodePtr front; //Points to the head of a linked list.
                             //Items are removed at the head
-        QueueNodePtr back;//Points to the node at the other end of the
+        QueueNodePtr back; //Points to the node at the other end of the
                            //linked list. Items are added at this end.
     };
-}//queuesavitch
+}//DMVqueue
 #endif //QUEUE_H
-
