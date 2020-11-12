@@ -7,6 +7,7 @@ namespace DMVqueue
 {
     struct QueueNode {
         int custNum;
+        int timeStamp;
         QueueNode *link;
     };
 
@@ -22,17 +23,28 @@ namespace DMVqueue
         // ~Queue( );
 
 
-        void add(int item);
-        //Postcondition: item has been added to the back of the queue.
+        void add();
 
-        int remove( );
+        int remove();
         //Precondition: The queue is not empty.
         //Returns the item at the front of the queue and
         //removes that item from the queue.
 
         bool empty( );
         //Returns true if the queue is empty. Returns false otherwise.
+
+        int size();
+        // Returns the amount of nodes in the queue.
+
+        int getNextsNumber();
+        // Returns the next customer's number
+
+        int getNextsTimestamp();
+        // Returns the next customer's timestamp
+
     private:
+        int length;
+        int totalSeen;
         QueueNodePtr front; //Points to the head of a linked list.
                             //Items are removed at the head
         QueueNodePtr back; //Points to the node at the other end of the

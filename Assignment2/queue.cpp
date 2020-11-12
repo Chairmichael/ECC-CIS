@@ -5,14 +5,15 @@
 #include <iostream>
 #include <cstdlib>
 #include <cstddef>
+#include <ctime>
 #include "queue.h"
 using namespace std;
 
 namespace DMVqueue
 {
     Queue::Queue( ) {
-        front = NULL;
-        back = NULL;
+        front = back = NULL;
+        length = totalSeen = 0;
     }
 
     // Queue::Queue(const Queue& aQueue) {
@@ -49,42 +50,41 @@ namespace DMVqueue
     //     }
     // }
 
-    bool Queue::empty( ) {
+    bool Queue::empty() {
         return (back == NULL);
     }
 
-    //Uses cstddef:
-    void Queue::add(int item)
+    void Queue::add()
     {
-        if (empty( ))
-        {
+        length++, totalSeen++;
+        // length++;
+        // totalSeen++;
+        if (empty()) {
             front = new QueueNode;
-            front->custNum = item;
+            front->custNum = totalSeen;
+            front->timeStamp = time(NULL);
             front->link = NULL;
             back = front;
         }
-
         else {
             QueueNodePtr tempPtr;
             tempPtr = new QueueNode;
-
-				tempPtr->custNum = item;
+            tempPtr->custNum = totalSeen;
+            tempPtr->timeStamp = time(NULL);
             tempPtr->link = NULL;
             back->link = tempPtr;
             back = tempPtr;
         }
     }
 
-    //Uses cstdlib and iostream:
-    int Queue::remove( )
-    {
-        if (empty( ))
-        {
+    int Queue::remove() {
+        if (empty()) {
             cout << "Error: Removing an item from an empty queue.\n";
             exit(1);
         }
 
-        int result = front->custNum;
+        int result = front->timeStamp;
+        length--;
 
         QueueNodePtr discard;
         discard = front;
@@ -95,6 +95,18 @@ namespace DMVqueue
         delete discard;
 
         return result;
+    }
+
+    int Queue::size() {
+        return length;
+    }
+
+    int Queue::getNextsNumber() {
+        return front->custNum;
+    }
+
+    int Queue::getNextsTimestamp() {
+        return front->timeStamp;
     }
 }//DMVqueue
 

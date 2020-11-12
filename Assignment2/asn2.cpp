@@ -13,14 +13,12 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <vector>
 #include "queue.h"
 using namespace std;
 using namespace DMVqueue;
 
 //Function declaration
- 
- 
-
 int main()
 {
     // Output Identification
@@ -30,28 +28,50 @@ int main()
 
     bool done = false;
     char userInput;
-    int timeStamps = {0,0,0};
+    vector<int> timeStamps;
     int amountWaiting = 0;
-    Queue waitingLine;
+    Queue waitingQueue;
 
     while (!done) {
-        if (waitingLine.empty()) {
+        if (waitingQueue.empty()) {
             cout << "The line is empty."
                 << "Enter '1' to simulate a customer's arrival "
                 << "or anything else to quit: ";
         }
         else {
-            cout << "Enter '1' to simulate a customer's arrival "
+            cout << "Enter '1' to simulate a customer's arrival" << endl
                 << "'2' to simulate helping the next customer "
                 << "or anything else to quit: ";
         }
-
         cin >> userInput;
-        if (userInput == '1') {
 
+        if (userInput == '1') {
+            waitingQueue.add();
+            cout << "Customer " << waitingQueue.getNextsNumber()
+                << " has entered the queue at time " << time(NULL) << ".\n";
         }
         else if (userInput == '2') {
+            time_t newTimeStamp = waitingQueue.getNextsTimestamp();
+            int curTime = time(NULL);
 
+            cout << "Customer " << waitingQueue.getNextsNumber()
+                << " is being helped at time " << curTime << endl
+                << "Wait time was " << (curTime - newTimeStamp) 
+                << " seconds." << endl;
+
+            waitingQueue.remove();
+            timeStamps.insert(timeStamps.begin(), newTimeStamp);
+
+            if (timeStamps.size() == 3) {
+                double avgTime = 0;
+                for (int t : timeStamps) {
+                    avgTime += t;
+                }
+                avgTime /= 3;
+                cout << "Estimated wait time for next customer "
+                    << avgTime << " seconds." << endl;
+            }
+            if (timeStamps.size() > 3) timeStamps.pop_back();
         } 
         else {
             done = true;
