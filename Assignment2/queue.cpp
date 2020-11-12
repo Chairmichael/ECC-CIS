@@ -1,10 +1,15 @@
-//DISPLAY 13.23 Implementation of the Queue Class
-//This is the implementation file queue.cpp.
-//This is the implementation of the class Queue.
-//The interface for the class Queue is in the header file queue.h.
+////////////////////////////////////////////////////////////////////////////////
+//                          ECC CIS-223 Fall 2020
+//
+//  Type of Assignment:     Assignment 2
+//  Author:                 Jeff Henry
+//  File Name:              queue.cpp
+//
+//  Purpose of Program:
+//       Assignment 2
+////////////////////////////////////////////////////////////////////////////////
+
 #include <iostream>
-#include <cstdlib>
-#include <cstddef>
 #include <ctime>
 #include "queue.h"
 using namespace std;
@@ -16,40 +21,6 @@ namespace DMVqueue
         length = totalSeen = 0;
     }
 
-    // Queue::Queue(const Queue& aQueue) {
-    //     if (aQueue.empty()) {
-    //         front = back = NULL;
-    //     }
-    //     else {
-    //         QueueNodePtr tempPtrOld = aQueue.front;
-    //         // Moves through the nodes, front to back
-    //         QueueNodePtr tempPtrNew;
-
-    //         back = new QueueNode; // First node
-    //         back->data = tempPtrOld->data;
-    //         back->link = NULL;
-    //         front = back;
-
-    //         tempPtrOld = tempPtrOld->link;
-
-    //         while (tempPtrOld != NULL) {
-    //             tempPtrNew = new QueueNode;
-    //             tempPtrNew->data = tempPtrOld->data;
-    //             tempPtrNew->link = NULL;
-    //             back->link = tempPtrNew;
-    //             back = tempPtrNew;
-    //             tempPtrOld = tempPtrOld->link;
-    //         }
-    //     }
-    // }
-
-    // Queue::~Queue( ) {
-    //     int next;
-    //     while (!empty()) {
-    //         next = remove();
-    //     }
-    // }
-
     bool Queue::empty() {
         return (back == NULL);
     }
@@ -57,8 +28,6 @@ namespace DMVqueue
     void Queue::add()
     {
         length++, totalSeen++;
-        // length++;
-        // totalSeen++;
         if (empty()) {
             front = new QueueNode;
             front->custNum = totalSeen;

@@ -1,6 +1,14 @@
-//DISPLAY 13.21 Interface File for a Queue Class
-//This is the header file queue.h. This is the interface for the class Queue,
-//which is a class for a queue of symbols.
+////////////////////////////////////////////////////////////////////////////////
+//                          ECC CIS-223 Fall 2020
+//
+//  Type of Assignment:     Assignment 2
+//  Author:                 Jeff Henry
+//  File Name:              queue.h
+//
+//  Purpose of Program:
+//       Assignment 2
+////////////////////////////////////////////////////////////////////////////////
+
 #ifndef QUEUE_H
 #define QUEUE_H
 namespace DMVqueue
@@ -15,13 +23,7 @@ namespace DMVqueue
 
     class Queue {
     public:
-        Queue( );
-        //Initializes the object to an empty queue.
-
-        // Queue(const Queue& aQueue);
-
-        // ~Queue( );
-
+        Queue();
 
         void add();
 
@@ -30,7 +32,7 @@ namespace DMVqueue
         //Returns the item at the front of the queue and
         //removes that item from the queue.
 
-        bool empty( );
+        bool empty();
         //Returns true if the queue is empty. Returns false otherwise.
 
         int size();
