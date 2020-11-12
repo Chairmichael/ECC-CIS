@@ -28,7 +28,7 @@ int main()
 
     bool done = false;
     char userInput;
-    vector<int> timeStamps;
+    vector<int> waitTimes;
     int amountWaiting = 0;
     Queue waitingQueue;
 
@@ -39,7 +39,7 @@ int main()
                 << "or anything else to quit: ";
         }
         else {
-            cout << "Enter '1' to simulate a customer's arrival" << endl
+            cout << "Enter '1' to simulate a customer's arrival." << endl
                 << "'2' to simulate helping the next customer "
                 << "or anything else to quit: ";
         }
@@ -54,24 +54,25 @@ int main()
             time_t newTimeStamp = waitingQueue.getNextsTimestamp();
             int curTime = time(NULL);
 
+            int wait = curTime - newTimeStamp;
             cout << "Customer " << waitingQueue.getNextsNumber()
                 << " is being helped at time " << curTime << endl
-                << "Wait time was " << (curTime - newTimeStamp) 
-                << " seconds." << endl;
+                << "Wait time was " << wait << " seconds." << endl;
 
             waitingQueue.remove();
-            timeStamps.insert(timeStamps.begin(), newTimeStamp);
+            waitTimes.insert(waitTimes.begin(), wait);
 
-            if (timeStamps.size() == 3) {
+            if (waitTimes.size() == 3) {
                 double avgTime = 0;
-                for (int t : timeStamps) {
+                for (int t : waitTimes) {
                     avgTime += t;
                 }
                 avgTime /= 3;
                 cout << "Estimated wait time for next customer "
                     << avgTime << " seconds." << endl;
+
+                waitTimes.pop_back();
             }
-            if (timeStamps.size() > 3) timeStamps.pop_back();
         } 
         else {
             done = true;
