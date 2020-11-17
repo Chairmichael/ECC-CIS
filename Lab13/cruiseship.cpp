@@ -14,6 +14,7 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include "ship.h"
 #include "cruiseship.h"
 
 using namespace std;
@@ -23,12 +24,11 @@ namespace Lab13
     CruiseShip::CruiseShip() : Ship(), maxPas(0) 
     {}
     CruiseShip::CruiseShip(string theName, string theYear, int newMax)
-            : ship(theName, theYear), maxPas(newMax)
+            : Ship(theName, theYear), maxPas(newMax)
     {}
 
     // Accessor method for maximum passengers
     int CruiseShip::getMaxPas() { return maxPas; }
-
     // Mutator method for setting the maximum passengers
     void CruiseShip::setMaxPas(int newMax) { maxPas = newMax; }
 
