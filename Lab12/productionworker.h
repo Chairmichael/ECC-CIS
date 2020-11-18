@@ -13,6 +13,7 @@
 #define PRODUCTIONWORKER_H
 
 #include <string>
+#include "employee.h"
 using namespace std;
 
 namespace Lab12

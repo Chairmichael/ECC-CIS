@@ -3,16 +3,15 @@
 //
 //  Type of Assignment:     Lab 12
 //  Author:                 Jeff Henry
-//  File Name:              employee.h
+//  File Name:              productionworker.cpp
 //
 //  Purpose of Program:
 //       Creating Derived Classes
 ////////////////////////////////////////////////////////////////////////////////
 
-#include <string>
 #include <iostream>
 #include <iomanip>
-#include "employee.h"
+#include <string>
 #include "productionworker.h"
 using namespace std;
 

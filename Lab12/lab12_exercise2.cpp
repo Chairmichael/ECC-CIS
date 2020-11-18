@@ -3,23 +3,22 @@
 //
 //  Type of Assignment:     Lab 12
 //  Author:                 Jeff Henry
-//  File Name:              lab12_exercise1.cpp
+//  File Name:              lab12_exercise2.cpp
 //
 //  Purpose of Program:
 //       Creating Derived Classes
 ////////////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
-#include "employee.h"
-#include "productionworker.h"
+#include <string>
+#include "teamleader.h"
 
 using namespace std;
 using namespace Lab12;
 
 int main() {
-	Employee worker1("Jake", 322, "10/10/2018");
-	worker1.print();
-	ProductionWorker worker2("Leif", 193, "7/8/2010", 2, 19.25);
-	worker2.print();
-	return 0;
+    // string theName, int theNumber, string theHireDate,
+    // int theShift, double theRate, double theMnBns, double theTraining
+    TeamLeader leader1("Riley", 7001, "8/23/2003", 2, 21.05, 210, 120);
+    leader1.print();
 }
