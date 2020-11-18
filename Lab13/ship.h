@@ -5,7 +5,7 @@
 //  Problem Number:         1
 //  Section Number          100
 //  Author:                 Jeff Henry
-//  File Name:              lab13_exercise1.cpp
+//  File Name:              ship.h
 //
 //  Purpose of Program:
 //       Polymorphism and Virtual Functions
@@ -17,6 +17,8 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+
+using namespace std;
 
 namespace Lab13
 {

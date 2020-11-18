@@ -5,7 +5,7 @@
 //  Problem Number:         1
 //  Section Number          100
 //  Author:                 Jeff Henry
-//  File Name:              lab13_exercise1.cpp
+//  File Name:              cruiseship.h
 //
 //  Purpose of Program:
 //       Polymorphism and Virtual Functions
@@ -14,11 +14,9 @@
 #ifndef CRUISESHIP_H
 #define CRUISESHIP_H
 
-#include <iostream>
-#include <iomanip>
 #include <string>
-#include <ship.h>
-#include <cruiseship.h>
+#include "ship.h"
+using namespace std;
 
 namespace Lab13
 {
@@ -36,6 +34,7 @@ namespace Lab13
 
         // Prints the info of the cruiseship
         virtual void print();
+
     protected:
         int maxPas; // Maximum passengers
     };

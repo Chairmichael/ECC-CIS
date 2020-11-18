@@ -15,12 +15,21 @@
 #include <string>
 #include "ship.h"
 #include "cruiseship.h"
+#include "cargoship.h"
 
 using namespace std;
 using namespace Lab13;
 
 int main() {
-	// Ship* shipArr[3];
-	Ship ship1;
-	return 0;
+    const int ARR_LENGTH = 3;
+    Ship* shipArr[ARR_LENGTH] = {
+        new Ship("Boaty McBoatface", "10/10/2011"),
+        new CruiseShip("People Mover", "5/3/2001", 12000),
+        new CargoShip("Things Mover", "6/29/1991", 78000)
+    };
+    for (int i = 0; i < ARR_LENGTH; i++) {
+        shipArr[i]->print();
+        cout << endl;
+    }
+    return 0;
 }
