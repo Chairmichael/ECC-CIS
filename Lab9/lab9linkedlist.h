@@ -33,6 +33,8 @@ namespace LabLinkedList
 		void printList();
 		// Removes a node from the list
 		void remove(double x);
+		// Reverses the list
+		void reverse();
 	private:
 		// Finds x in the list and returns a NodePtr. Returns NULL otherwise.
 		NodePtr find(double x);

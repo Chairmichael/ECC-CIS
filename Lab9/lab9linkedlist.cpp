@@ -108,16 +108,18 @@ namespace LabLinkedList
     // Removes a node from the list
     void LinkedList::remove(double x) {
         NodePtr here = head;
-        NodePtr back;
+        NodePtr back = NULL;
         if (head == NULL) {
             cout << "Error: Removing a node from an empty list.\n";
             exit(1);
         }
         else {
-            while (here->n == x && here != NULL) {
+            while (here->n != x && here != NULL) {
                 back = here;
                 here = here->link;
+                cout << ".";
             }
+            cout << "!\n";
             if (here->n == x) {
                 back->link = here->link;
                 delete here;
@@ -125,5 +127,18 @@ namespace LabLinkedList
             else
                 cout << "Not found." << endl;
         }
+    }
+
+    // Reverses the list
+    void LinkedList::reverse() {
+        NodePtr here = head;
+        NodePtr prev, next = NULL;
+        while (here != NULL) {
+            next = here->link;
+            here->link = prev;
+            prev = here;
+            here = next;
+        }
+        head = prev;
     }
 }

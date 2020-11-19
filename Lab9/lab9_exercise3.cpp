@@ -34,6 +34,19 @@ int main( )
 
     cout <<  "list.search(3.14) = " << list.search(3.14) << endl;
 
+    cout << "Reversing..." << endl;
+    list.reverse();
+    list.printList();
+
+    cout <<  "list.search(3.14) = " << list.search(3.14) << endl;
+
+    cout << "Removing 3.14 and -29" << endl;
+    list.remove(-29);
+    list.remove(3.14);
+    cout << "Adding 883.72495" << endl;
+    list.add(883.72495);
+    list.printList();
+
     cout << "\n\nEnd Program.\n";
     return 0;
 } 
