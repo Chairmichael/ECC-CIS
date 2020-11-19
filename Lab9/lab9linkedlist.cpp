@@ -15,6 +15,7 @@
 #include <string>
 #include <iostream>
 #include "lab9linkedlist.h"
+#define CMP_EPSILON 0.0001
 
 using namespace std;
 
@@ -120,6 +121,7 @@ namespace LabLinkedList
                 cout << ".";
             }
             cout << "!\n";
+            cout << here->n << "\t" << x << endl;
             if (here->n == x) {
                 back->link = here->link;
                 delete here;
@@ -141,4 +143,9 @@ namespace LabLinkedList
         }
         head = prev;
     }
-}
+
+    // bool doubleCompare(double a, double b, double epsilon = 0.0001) {
+    //     return abs(a - b) < epsilon;
+        // !(abs(here->n - x) < CMP_EPSILON)
+    // }
+} //LabLinkedList

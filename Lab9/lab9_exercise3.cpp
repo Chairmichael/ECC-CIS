@@ -27,24 +27,24 @@ int main( )
         << "Linked List\n\n";
 
     LinkedList list;
-    list.add(3.14);
+    list.add(3);
     list.add(8);
     list.add(-29);
     list.printList();
 
-    cout <<  "list.search(3.14) = " << list.search(3.14) << endl;
+    cout <<  "list.search(3) = " << list.search(3) << endl;
 
     cout << "Reversing..." << endl;
     list.reverse();
     list.printList();
 
-    cout <<  "list.search(3.14) = " << list.search(3.14) << endl;
+    cout <<  "list.search(3) = " << list.search(3) << endl;
 
-    cout << "Removing 3.14 and -29" << endl;
+    cout << "Removing 3 and -29" << endl;
     list.remove(-29);
-    list.remove(3.14);
-    cout << "Adding 883.72495" << endl;
-    list.add(883.72495);
+    list.remove(3);
+    cout << "Adding 883" << endl;
+    list.add(883);
     list.printList();
 
     cout << "\n\nEnd Program.\n";
