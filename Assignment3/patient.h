@@ -26,7 +26,7 @@ private:
 public:
 	Patient();
 	Patient(const Person& pr, const Doctor& dr);
-	Patient(const Patient& pt);
+	Patient(Patient& pt);
 
 	void setDoc(const Doctor& dr);
 	Doctor& getDoc();

@@ -14,6 +14,7 @@
 #include <string>
 #include "person.h"
 #include "doctor.h"
+#include "patient.h"
 using namespace std;
 using namespace Asn3;
 
@@ -37,13 +38,24 @@ int main()
 
     // cout << (pr2 == pr3) << endl;
 
-    cout << endl << "Doctors..." << endl;
-    Doctor dr1(Person("Jon", "Jakey"), 210);
-    cout << dr1 << ", Rate: " << dr1.getRate() << endl;
+    // cout << endl << "Doctors..." << endl;
+    // Doctor dr1(Person("Jon", "Jakey"), 210);
+    // cout << dr1 << ", Rate: " << dr1.getRate() << endl;
 
-    Doctor dr2;
-    dr2 = dr1;
-    cout << dr1 << ", Rate: " << dr1.getRate() << endl;
+    // Doctor dr2;
+    // dr2 = dr1;
+    // cout << dr1 << ", Rate: " << dr1.getRate() << endl;
+
+    // Patient pt1;
+    // cout << "The patient: ";
+    // cin >> pt1;
+    // cout << "The doc: ";
+    // Doctor dr1;
+    // cin >> dr1;
+    // pt1.setDoc(dr1);
+    // cout << pt1.getDoc() << " is the doctor for " << pt1 << endl;
+
+    
 
     cout << "\n\nEnd Program.\n";
     return 0;

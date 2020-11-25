@@ -19,7 +19,7 @@ namespace Asn3
 	Patient::Patient() : Person() { }
 	Patient::Patient(const Person& pr, const Doctor& dr) 
 		: Person(pr), doc(dr) { }
-	Patient::Patient(const Patient& pt)
+	Patient::Patient(Patient& pt)
 		: Person(pt.getFirst(), pt.getLast()) { doc = pt.getDoc(); }
 
 	void Patient::setDoc(const Doctor& dr) { doc = dr; }
