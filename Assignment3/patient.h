@@ -22,12 +22,16 @@ namespace Asn3
 {
 class Patient : public Person {
 private:
-	Doctor doc;
+	Doctor doc; // This Patient's primary doctor
 public:
+    // Default constructor
 	Patient();
+    // Takes a specific person and doctor
 	Patient(const Person& pr, const Doctor& dr);
+    // Copy constructor
 	Patient(Patient& pt);
 
+    // Getter and setter functions
 	void setDoc(const Doctor& dr);
 	Doctor& getDoc();
 	

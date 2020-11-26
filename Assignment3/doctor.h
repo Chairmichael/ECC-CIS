@@ -24,10 +24,14 @@ private:
 	double rate; // Doctor's hourly rate
 
 public:
+    // Default constructor
 	Doctor();
+    // Takes a Person object for the name, and a double for the rate
 	Doctor(const Person& pr, double);
+    // Copy constructor
 	Doctor(const Doctor& dr);
 	
+    // Getter and setter functions
 	void setRate(double r);
 	double getRate() const;
 

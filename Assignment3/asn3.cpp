@@ -38,6 +38,7 @@ int main()
         double docRate;
         int hours;
 
+        // Get names and rates
         cout << "Enter the patient's name: ";
         cin >> pat;
         cout << "Enter primary physician's name and their rate: ";
@@ -50,14 +51,17 @@ int main()
         cout << "Enter amount of hours: ";
         cin >> hours;
 
+        // Adds new bill to the vector
         bills.push_back(new Billing(doc, pat, hours));
     }
 
     double total = 0;
+    // Displays how much each patient owes and sums up the dues
     for (Billing* bill : bills) {
         cout << bill->getPatientName() << " owes: " << bill->getDue() << " Dollars." << endl;
         total += bill->getDue();
     }
+    // Displays the doctors total income
     cout << "The total income from the billing records: " << total << " Dollars." << endl;
 
     cout << "\n\nEnd Program.\n";

@@ -25,11 +25,16 @@ namespace Asn3
         Patient pat; // The doctor's patient
         double due; // amount of money due
     public:
+        // Default constructor
         Billing();
+        // Builds a bill from a specific Doctor, Patient and some hours
         Billing(Doctor& d, Patient& pt, int hours);
 
+        // Gets the amount due on the bill
         double getDue();
+        // Gets the Doctor's name (first, then last)
         string getDocName() const;
+        // Gets the Patient's name (first, then last)
         string getPatientName() const;
     };
 } //Asn3
