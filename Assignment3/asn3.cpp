@@ -12,9 +12,11 @@
 // Include Section
 #include <iostream>
 #include <string>
+#include <vector>
 #include "person.h"
 #include "doctor.h"
 #include "patient.h"
+#include "billing.h"
 using namespace std;
 using namespace Asn3;
 
@@ -23,39 +25,40 @@ int main()
 {
     // Output Identification
     system("CLS");
-    cout << "Assignment 3 by Jeff Henry - "
-         << "People Project\n\n";
+    cout << "Assignment 3 by Jeff Henry - Doctors\n\n";
 
-    // Person pr1("Ryan", "Larsen");
-    // Person pr2;
-    // pr2.setFirst("Guy");
-    // pr2.setLast("Jimmy");
-    // cout << pr1 << endl << pr2 << endl;
+    const int NUM_OF_PATIENTS = 2;
+    vector<Billing*> bills;
 
-    // Person pr3;
-    // cin >> pr3;
-    // cout << "You entered: " << pr3 << endl;
+    // Get users input
+    for (int i = 0; i < NUM_OF_PATIENTS; i++) {
+        Doctor docForPat;
+        Doctor doc;
+        Patient pat;
+        double docRate;
+        int hours;
 
-    // cout << (pr2 == pr3) << endl;
+        cout << "Enter the patient's name: ";
+        cin >> pat;
+        cout << "Enter primary physician's name and their rate: ";
+        cin >> docForPat >> docRate;
+        docForPat.setRate(docRate);
+        pat.setDoc(docForPat);
+        cout << "Enter a doctor's name and their hourly rate: ";
+        cin >> doc >> docRate;
+        doc.setRate(docRate);
+        cout << "Enter amount of hours: ";
+        cin >> hours;
 
-    // cout << endl << "Doctors..." << endl;
-    // Doctor dr1(Person("Jon", "Jakey"), 210);
-    // cout << dr1 << ", Rate: " << dr1.getRate() << endl;
+        bills.push_back(new Billing(doc, pat, hours));
+    }
 
-    // Doctor dr2;
-    // dr2 = dr1;
-    // cout << dr1 << ", Rate: " << dr1.getRate() << endl;
-
-    // Patient pt1;
-    // cout << "The patient: ";
-    // cin >> pt1;
-    // cout << "The doc: ";
-    // Doctor dr1;
-    // cin >> dr1;
-    // pt1.setDoc(dr1);
-    // cout << pt1.getDoc() << " is the doctor for " << pt1 << endl;
-
-    
+    double total = 0;
+    for (Billing* bill : bills) {
+        cout << bill->getPatientName() << " owes: " << bill->getDue() << " Dollars." << endl;
+        total += bill->getDue();
+    }
+    cout << "The total income from the billing records: " << total << " Dollars." << endl;
 
     cout << "\n\nEnd Program.\n";
     return 0;
