@@ -13,10 +13,14 @@
 #define CHECKEDARRAY_H
 
 #include <iostream>
+#include <exception>
+#include <cstddef>
 using namespace std;
 
 namespace Lab14
 {
+    class ArrayOutOfRangeError : public exception { };
+
     const int MAX_LENGTH = 10;
     class CheckedArray {
     private:

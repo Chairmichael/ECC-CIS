@@ -16,6 +16,7 @@ namespace Lab14
 {
     // Default constructor
     CheckedArray::CheckedArray() {
+        // Fills in array with 0s
         for (int i = 0; i < MAX_LENGTH; i++)
             arrayData[i] = 0;
         arrayPtr = arrayData;
@@ -41,14 +42,18 @@ namespace Lab14
 
     // Index operator returns a pointer to an element of the array
     int &CheckedArray::operator[](int i) {
-
+        if (i < 0 || i >= MAX_LENGTH) {
+            throw ArrayOutOfRangeError();
+            int* np = nullptr;
+            return *np;
+        }
         return *(arrayPtr + i);
     }
     // Outputs the contents of the array to the stream
     ostream& operator <<(ostream& os, const CheckedArray& ca) {
         os << "[";
         for (int i = 0; i < MAX_LENGTH; i++) {
-            if (i == MAX_LENGTH)
+            if (i == MAX_LENGTH - 1)
                 os << " " << ca.arrayData[i];
             else
                 os << " " << ca.arrayData[i] << ",";
