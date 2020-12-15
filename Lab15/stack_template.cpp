@@ -32,17 +32,17 @@ namespace Lab15
 	// Adds a new element to the top of the stack
 	//   Resizes if needed by adding 10 positions
 	template <class T>
-	void Stack<T>::push(T) {
+	void Stack<T>::push(const T& data) {
 		top++;
 		if (top >= capacity)
 			Stack<T>::resize(capacity + 10);
-		arr[top] = T;
+		arr[top] = data;
 	}
 
 	// Removes the element from the top of the stack and returns it
 	//   Resizes if there are over 20 unused positions
 	template <class T>
-	T Stack<T>::pop() {
+	const T& Stack<T>::pop() {
 		if (top - capacity >= 20)
 			Stack<T>::resize(capacity - 10);
 		return arr[top--];
@@ -50,7 +50,7 @@ namespace Lab15
 
 	// Gets the element from the top of the stack, does not remove it
 	template <class T>
-	T Stack<T>::get() {
+	const T& Stack<T>::get() {
 		return arr[top];
 	}
 

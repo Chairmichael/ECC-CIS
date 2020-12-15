@@ -17,8 +17,8 @@ using namespace Lab15;
 
 int main() {
     cout << " ~~ Jeff Henry - Lab 15 ~~\n\n";
-    Stack<string> st;
-    st.push("jeff");
-    st.push("henry");
-    
+    Stack<int> st;
+    // st.push("jeff");
+    // st.push("henry");
+
 }

@@ -27,14 +27,14 @@ namespace Lab15
 
 		// Adds a new element to the top of the stack
 		//   Resizes if needed by adding 10 positions
-		void push(T);
+		void push(const T& data);
 
 		// Removes the element from the top of the stack and returns it
 		//   Resizes if there are over 20 unused positions
-		T pop();
+		const T& pop();
 
 		// Gets the element from the top of the stack, does not remove it
-		T get();
+		const T& get();
 
 		// Returns the amount of items in the stack
 		int getSize();
