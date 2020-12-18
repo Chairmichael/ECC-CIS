@@ -35,6 +35,7 @@ void printStrPerm(string s, int begin, int end) {
 }
 
 int main() {
+	cout << " ~~ Jefferson Henry - Assignment 4 ~~\n\n";
 	string theStr = "abc";
 	printStrPerm(theStr, 0, theStr.length());
 	return 0;

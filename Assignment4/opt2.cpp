@@ -28,6 +28,7 @@ bool isPositiveInteger(string s) {
 }
 
 int main() {
+	cout << " ~~ Jefferson Henry - Assignment 4 ~~\n\n";
 	ifstream inputFile("ratings.txt");
 	map< string, vector<int> > movieRatings;
 	string line, prevMovie;

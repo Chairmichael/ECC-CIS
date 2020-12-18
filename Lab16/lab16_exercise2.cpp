@@ -30,4 +30,6 @@ int main() {
 		cout << "Number " << it.first;
 		cout << " has been seen " << it.second << " times." << endl;
 	}
+
+	return 0;
 }

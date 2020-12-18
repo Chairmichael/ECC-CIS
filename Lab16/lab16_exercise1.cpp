@@ -47,4 +47,6 @@ int main() {
 		cout << target << " is in the vector." << endl;
 	else
 		cout << target << " is NOT in the vector!" << endl;
+
+	return 0;
 }
